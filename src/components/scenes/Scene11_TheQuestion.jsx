@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import { Heart, Sparkles } from 'lucide-react';
 import CinematicScene from '../CinematicScene';
+import BonusHub from '../BonusHub';
 
 const Scene11_TheQuestion = () => {
     const [noBtnPos, setNoBtnPos] = useState({ x: 0, y: 0 });
     const [accepted, setAccepted] = useState(false);
     const [noHoverCount, setNoHoverCount] = useState(0);
+    const [showBonus, setShowBonus] = useState(false);
 
     const handleNoHover = () => {
         const x = Math.random() * 400 - 200;
@@ -50,7 +52,16 @@ const Scene11_TheQuestion = () => {
         <CinematicScene background="bg-gradient-to-br from-wednesday-purple-500 via-wednesday-purple-900 to-wednesday-purple-800">
             <div className="flex flex-col items-center justify-center h-screen px-4">
                 <AnimatePresence mode="wait">
-                    {!accepted ? (
+                    {showBonus ? (
+                        <motion.div
+                            key="bonus"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="w-full h-full"
+                        >
+                            <BonusHub />
+                        </motion.div>
+                    ) : !accepted ? (
                         <motion.div
                             key="question"
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -123,9 +134,21 @@ const Scene11_TheQuestion = () => {
                                 I'm the luckiest person in the world.
                             </p>
 
-                            <p className="text-xl text-gray-200">
+                            <p className="text-xl text-gray-200 mb-12">
                                 See you soon, my Valentine. 💕
                             </p>
+
+                            <motion.button
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1 }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => setShowBonus(true)}
+                                className="px-12 py-4 bg-transparent border-2 border-wednesday-purple-500 text-wednesday-purple-400 rounded-full font-bold text-xl hover:bg-wednesday-purple-500 hover:text-white transition-all shadow-lg shadow-wednesday-purple-500/20"
+                            >
+                                Our Journey Awaits... 🥂
+                            </motion.button>
                         </motion.div>
                     )}
                 </AnimatePresence>

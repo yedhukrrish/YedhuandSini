@@ -3,6 +3,7 @@ import LoginGate from './components/LoginGate';
 import Curtain from './components/Curtain';
 import MusicPlayer from './components/MusicPlayer';
 import useHeartTrail from './hooks/useHeartTrail';
+import FloatingGallery from './components/FloatingGallery';
 
 // Import all scenes
 import Scene1_OpeningCredits from './components/scenes/Scene1_OpeningCredits';
@@ -37,7 +38,8 @@ function App() {
 
       {/* Step 2: The Cinematic Story */}
       {loginStep === 2 && (
-        <main className="scroll-smooth">
+        <main className="scroll-smooth relative">
+          <FloatingGallery />
           <Scene1_OpeningCredits />
           <Scene2_TheSnap />
           <Scene3_TheRant />

@@ -34,7 +34,7 @@ const Scene7_TheProposal = () => {
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
                     >
-                        January 1, 2023
+                        January 1, 2024
                     </motion.p>
 
                     <motion.h2

@@ -30,11 +30,25 @@ const Scene1_OpeningCredits = () => {
                     </motion.h1>
 
                     <motion.div
-                        className="w-32 h-0.5 bg-gradient-to-r from-transparent via-wednesday-purple-500 to-transparent mx-auto"
+                        className="w-32 h-0.5 bg-gradient-to-r from-transparent via-wednesday-purple-500 to-transparent mx-auto mb-8"
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         transition={{ duration: 1.5, delay: 3 }}
                     />
+
+                    {/* Centered Sini Image */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.5, delay: 3.5 }}
+                        className="relative mx-auto flex justify-center w-full"
+                    >
+                        <img
+                            src="/images/sini/sini1.png"
+                            alt="The Girl Who Never Let Go"
+                            className="max-h-[50vh] w-auto object-contain drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]"
+                        />
+                    </motion.div>
                 </motion.div>
 
                 <motion.p

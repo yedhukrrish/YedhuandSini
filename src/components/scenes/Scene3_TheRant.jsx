@@ -51,7 +51,7 @@ const Scene3_TheRant = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 2 }}
                     >
-                        I spoke for 3 hours straight. Thank you for listening when I had so much to say.
+                        You spoke for 3 hours straight. Thank you for letting me listen to every word.
                     </motion.p>
                 </motion.div>
             </div>

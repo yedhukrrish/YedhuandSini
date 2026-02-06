@@ -18,13 +18,13 @@ const MemoryMap = () => {
             top: '50%', left: '70%',
             title: 'The 3-Hour Rant',
             date: 'Oct 2021',
-            desc: 'The night you listened to me ramble for 3 hours straight. That\'s when I knew you were patient beyond words.'
+            desc: 'The night I listened to you ramble for 3 hours straight. That\'s when I knew I wanted to listen to you forever.'
         },
         {
             id: 3,
             top: '75%', left: '40%',
             title: 'The "Yes" Moment',
-            date: 'Jan 1, 2023',
+            date: 'Jan 1, 2024',
             desc: 'The New Year\'s proposal. When I finally matched your commitment and promised you my forever.'
         },
         {

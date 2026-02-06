@@ -8,7 +8,7 @@ const LoginGate = ({ onLogin }) => {
     const [isUnlocked, setIsUnlocked] = useState(false);
 
     // Anniversary / Proposal Date
-    const TARGET_DATE = '2023-01-01';
+    const TARGET_DATE = '2024-01-01';
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -171,7 +171,7 @@ const LoginGate = ({ onLogin }) => {
                                     animate={{ opacity: 1 }}
                                     className="absolute -bottom-8 left-0 right-0 text-wednesday-purple-400 text-sm"
                                 >
-                                    Oops! That's not it... (Try 2023-01-01)
+                                    Oops! That's not it... (Try 2024-01-01)
                                 </motion.p>
                             )}
                         </form>

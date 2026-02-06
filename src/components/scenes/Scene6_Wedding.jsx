@@ -61,6 +61,19 @@ const Scene6_Wedding = () => {
                     </motion.p>
                 </motion.div>
             </div>
+
+            <motion.div
+                className="absolute bottom-0 right-0 md:bottom-10 md:right-10 z-10 pointer-events-none"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.5, duration: 1 }}
+            >
+                <img
+                    src="/images/familyphoto.png"
+                    alt="My Family"
+                    className="w-72 md:w-[32rem] h-auto object-contain drop-shadow-[0_0_25px_rgba(168,85,247,0.5)]"
+                />
+            </motion.div>
         </CinematicScene>
     );
 };

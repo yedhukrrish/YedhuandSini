@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Map as MapIcon, Image as ImageIcon, Disc, HelpCircle, Heart } from 'lucide-react';
+import { Mail, Map as MapIcon, Image as ImageIcon, Disc, HelpCircle, Heart, Stars } from 'lucide-react';
 import MessageInABottle from './MessageInABottle';
-import MemoryMap from './MemoryMap';
+import ConstellationMap from './ConstellationMap';
 import PolaroidStack from './PolaroidStack';
 import DateNightRoulette from './DateNightRoulette';
 import StoryQuiz from './StoryQuiz';
@@ -13,7 +13,7 @@ const BonusHub = () => {
 
     const features = [
         { id: 'bottle', name: 'Message in a Bottle', icon: Mail, color: 'text-blue-400' },
-        { id: 'map', name: 'Memory Map', icon: MapIcon, color: 'text-green-400' },
+        { id: 'constellation', name: 'Constellation of Us', icon: Stars, color: 'text-blue-400' },
         { id: 'polaroid', name: 'Polaroid Stack', icon: ImageIcon, color: 'text-purple-400' },
         { id: 'roulette', name: 'Date Night Roulette', icon: Disc, color: 'text-pink-400' },
         { id: 'quiz', name: 'She Knows Me?', icon: HelpCircle, color: 'text-yellow-400' },
@@ -23,7 +23,7 @@ const BonusHub = () => {
     const renderFeature = () => {
         switch (activeFeature) {
             case 'bottle': return <MessageInABottle />;
-            case 'map': return <MemoryMap />;
+            case 'constellation': return <ConstellationMap />;
             case 'polaroid': return <PolaroidStack />;
             case 'roulette': return <DateNightRoulette />;
             case 'quiz': return <StoryQuiz />;

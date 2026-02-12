@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Volume2 } from 'lucide-react';
+import useImagePreload from '../hooks/useImagePreload';
 
 const SoulfulSlideshow = ({ onClose }) => {
     const images = [
@@ -36,6 +37,9 @@ const SoulfulSlideshow = ({ onClose }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
     const audioRef = useRef(new Audio('/music/obunplugged.mp3'));
+
+    // Preload slideshow images
+    useImagePreload(images);
 
     useEffect(() => {
         const audio = audioRef.current;

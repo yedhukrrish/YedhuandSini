@@ -3,6 +3,7 @@ import LoginGate from './components/LoginGate';
 import Curtain from './components/Curtain';
 import MusicPlayer from './components/MusicPlayer';
 import useHeartTrail from './hooks/useHeartTrail';
+import useImagePreload from './hooks/useImagePreload';
 import FloatingGallery from './components/FloatingGallery';
 import MilestoneScene from './components/MilestoneScene';
 import BonusHub from './components/BonusHub';
@@ -183,6 +184,9 @@ function App() {
       image: "/images/dates/well you know what happened.jpg"
     }
   ];
+
+  // Preload all milestone images in the background
+  useImagePreload(milestones.map(m => m.image));
 
   return (
     <div className="min-h-screen bg-wednesday-black font-sans text-white selection:bg-wednesday-purple-500 selection:text-white overflow-x-hidden">

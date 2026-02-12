@@ -7,6 +7,9 @@ import useImagePreload from './hooks/useImagePreload';
 import FloatingGallery from './components/FloatingGallery';
 import MilestoneScene from './components/MilestoneScene';
 import BonusHub from './components/BonusHub';
+import LoadingScreen from './components/LoadingScreen';
+import useAssetLoader from './hooks/useAssetLoader';
+import { ASSETS } from './utils/assets';
 import {
   Camera, MapPin, Coffee, Star,
   Waves, Ghost, Landmark, Music,
@@ -30,6 +33,10 @@ import Scene11_TheQuestion from './components/scenes/Scene11_TheQuestion';
 function App() {
   const [loginStep, setLoginStep] = useState(0); // 0: Login, 1: Curtain, 2: Story
   const [isAccepted, setIsAccepted] = useState(false);
+
+  // GLOBAL ASSET PRELOADING
+  const { isLoading, progress } = useAssetLoader(ASSETS);
+
   useHeartTrail();
 
   const milestones = [
@@ -185,8 +192,13 @@ function App() {
     }
   ];
 
-  // Preload all milestone images in the background
+  // Preload all milestone images in the background (Secondary check)
   useImagePreload(milestones.map(m => m.image));
+
+  // Show Loading Screen until everything is ready
+  if (isLoading) {
+    return <LoadingScreen progress={progress} />;
+  }
 
   return (
     <div className="min-h-screen bg-wednesday-black font-sans text-white selection:bg-wednesday-purple-500 selection:text-white overflow-x-hidden">

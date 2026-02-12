@@ -5,10 +5,12 @@ const CinematicScene = ({
     children,
     background = 'bg-gradient-to-b from-wednesday-purple-900 to-wednesday-purple-800',
     className = '',
-    parallax = false
+    parallax = false,
+    containerRef = null
 }) => {
     return (
         <motion.section
+            ref={containerRef}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.3 }}

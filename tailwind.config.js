@@ -19,7 +19,9 @@ export default {
                 },
             },
             fontFamily: {
-                cursive: ['Dancing Script', 'cursive'],
+                sans: ['Outfit', 'sans-serif'],
+                serif: ['Outfit', 'sans-serif'],
+                cursive: ['Playfair Display', 'serif'],
             },
         },
     },

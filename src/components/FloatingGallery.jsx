@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
 
 const FloatingGallery = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -20,16 +20,14 @@ const FloatingGallery = () => {
     // Combine and shuffle slightly to mix them up
     const images = [...soloImages, ...groupImages].sort(() => Math.random() - 0.5);
 
-    useEffect(() => {
-        return scrollY.onChange((latest) => {
-            // Show only after passing Scene 1 (approx 100vh)
-            if (latest > window.innerHeight * 0.8) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        });
-    }, [scrollY]);
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        // Show only after passing Scene 1 (approx 100vh)
+        if (latest > window.innerHeight * 0.8) {
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
+    });
 
     const [positions, setPositions] = useState([]);
 

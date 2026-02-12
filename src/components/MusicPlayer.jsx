@@ -4,14 +4,14 @@ import { Music, Volume2, VolumeX } from 'lucide-react';
 const MusicPlayer = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
-    const [currentSong, setCurrentSong] = useState('lethergo');
+    const [currentSong, setCurrentSong] = useState('theycallthislove');
 
     // Two songs: Let Her Go (initial) and Perfect (after YES)
     const audioRef = useRef(null);
 
     useEffect(() => {
-        // Initialize with Let Her Go
-        audioRef.current = new Audio('/music/lethergo.mp3');
+        // Initialize with They Call This Love
+        audioRef.current = new Audio('/music/theycallthislove.mp3');
         audioRef.current.loop = true;
         audioRef.current.volume = 0.3;
 
@@ -30,7 +30,7 @@ const MusicPlayer = () => {
             audioRef.current.currentTime = 0;
         }
 
-        const songPath = songName === 'perfect' ? '/music/perfect.mp3' : '/music/lethergo.mp3';
+        const songPath = songName === 'perfect' ? '/music/perfect.mp3' : '/music/theycallthislove.mp3';
         audioRef.current = new Audio(songPath);
         audioRef.current.loop = true;
         audioRef.current.volume = 0.3;
@@ -65,6 +65,13 @@ const MusicPlayer = () => {
             if (audioRef.current) {
                 audioRef.current.play().catch(e => console.log("Audio play failed:", e));
                 setIsPlaying(true);
+            }
+        };
+
+        window.pauseBackgroundMusic = () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                setIsPlaying(false);
             }
         };
 

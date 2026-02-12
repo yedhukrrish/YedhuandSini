@@ -19,7 +19,7 @@ const timelineData = [
         desc: "Too hard to admit we were in a relationship, too close to be just friends. The 49 rejections saga!",
     },
     {
-        date: 'May 2023',
+        date: 'August 2023',
         title: "Sister's Wedding",
         desc: "Taking you to my sister's wedding—the day things felt truly real.",
     },

@@ -139,7 +139,7 @@ const LoginGate = ({ onLogin }) => {
                         className="text-center p-8 max-w-2xl w-full relative z-10"
                     >
                         <Heart className="w-16 h-16 mx-auto mb-10 text-wednesday-purple-400 animate-bounce" fill="currentColor" />
-                        <h1 className="text-3xl md:text-4xl font-cursive mb-12 leading-relaxed">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-12 leading-relaxed text-white/90">
                             When did I finally say "Yes" to our forever?
                         </h1>
 

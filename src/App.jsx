@@ -8,6 +8,8 @@ import FloatingGallery from './components/FloatingGallery';
 import MilestoneScene from './components/MilestoneScene';
 import BonusHub from './components/BonusHub';
 import LoadingScreen from './components/LoadingScreen';
+import BirthdaySurprise from './components/BirthdaySurprise';
+import { isBirthdaySpecialDay } from './utils/time';
 import useAssetLoader from './hooks/useAssetLoader';
 import { ASSETS } from './utils/assets';
 import {
@@ -31,7 +33,8 @@ import Scene10_BuildUp from './components/scenes/Scene10_BuildUp';
 import Scene11_TheQuestion from './components/scenes/Scene11_TheQuestion';
 
 function App() {
-  const [loginStep, setLoginStep] = useState(0); // 0: Login, 1: Curtain, 2: Story
+  const isBirthday = isBirthdaySpecialDay();
+  const [loginStep, setLoginStep] = useState(0); // 0: Login/Birthday, 1: Curtain, 2: Story
   const [isAccepted, setIsAccepted] = useState(false);
 
   // GLOBAL ASSET PRELOADING
@@ -204,8 +207,16 @@ function App() {
     <div className="min-h-screen bg-wednesday-black font-sans text-white selection:bg-wednesday-purple-500 selection:text-white overflow-x-hidden">
       <MusicPlayer />
 
-      {/* Step 0: Login Gate */}
-      {loginStep === 0 && (
+      {/* Birthday Gate – replaces login on Feb 22 & 23 */}
+      {loginStep === 0 && isBirthday && (
+        <BirthdaySurprise onEnter={() => {
+          if (window.playBackgroundMusic) window.playBackgroundMusic();
+          setLoginStep(1);
+        }} />
+      )}
+
+      {/* Step 0: Normal Login Gate (non-birthday) */}
+      {loginStep === 0 && !isBirthday && (
         <LoginGate onLogin={() => setLoginStep(1)} />
       )}
 
